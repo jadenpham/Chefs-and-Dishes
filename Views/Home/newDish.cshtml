@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    @model Dish
+    <div>
+        <h1>Add a Dish</h1>
+        <a href="/">Home</a>
+    </div>
+    <div>
+        <form asp-action="addDish" asp-controller="Home" method="post">
+            <h3>Name of Dish</h3>
+            <span asp-validation-for="Name"></span>
+            <input type="text" asp-for="Name">
+
+            <h3># of Calories</h3>
+            <span asp-validation-for="Name"></span>
+            <input type="text" asp-for="Calories">
+
+            <h3>Description</h3>
+            <span asp-validation-for="Description"></span>
+            <input type="text" asp-for="Description">
+
+            <h3>Chef</h3>
+            <select asp-for="ChefId">
+
+                @foreach(var chef in ViewBag.chefs)
+                {
+                    <option value="@chef.ChefId">@chef.FirstName @chef.LastName</option>
+                }
+            </select>
+
+            <h3>Tastiness</h3>
+            <select name="Tastiness">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>

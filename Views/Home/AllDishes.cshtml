@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    @model List<Dish>
+    <div>
+        <a href="/">Chefs</a>
+        <a href="/dishes/new">Add a Dish</a>
+        <h1>Dishes</h1>
+    </div>
+    <div>
+        <h1>Yum, take a look at our tasty dishes!</h1>
+        <table>
+            <th>
+                <tr>
+                    <td><h3>Name</h3></td>
+                    <td><h3>Chef</h3></td>
+                    <td><h3>Tastiness</h3></td>
+                    <td><h3>Calories</h3></td>
+                </tr>
+            </th>
+            <tbody>
+                @foreach(var dish in Model)
+                {
+                <tr>
+                    <td>@dish.Name</td>
+                    <td>@dish.Creator.FirstName @dish.Creator.LastName</td>
+                    <td>@dish.Tastiness</td>
+                    <td>@dish.Calories</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
